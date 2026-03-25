@@ -73,6 +73,7 @@ class BaiduPCSI:
                 encoding="utf-8",
                 errors="ignore",
                 timeout=3600,
+                creationflags=subprocess.CREATE_NO_WINDOW,
             )
 
             # 检查输出中是否包含失败关键词
@@ -105,6 +106,7 @@ class BaiduPCSI:
                 encoding="utf-8",
                 errors="ignore",
                 timeout=60,
+                creationflags=subprocess.CREATE_NO_WINDOW,
             )
             return result.returncode == 0
         except Exception as e:
@@ -151,6 +153,7 @@ def run_share_command(remote_path, password):
             encoding="utf-8",
             errors="ignore",
             timeout=30,
+            creationflags=subprocess.CREATE_NO_WINDOW,
         )
 
         # 打印标准输出和标准错误
@@ -193,6 +196,7 @@ def run_save_command(remote_url, path, password):
             encoding="utf-8",
             errors="ignore",
             timeout=30,
+            creationflags=subprocess.CREATE_NO_WINDOW,
         )
 
         # 打印标准输出和标准错误
@@ -232,6 +236,7 @@ def run_save_command_upload(path, path_bd):
             encoding="utf-8",  # 显式指定UTF-8编码
             errors="ignore",  # 忽略无法解码的字符
             timeout=3600,
+            creationflags=subprocess.CREATE_NO_WINDOW,
         )
 
         # 打印详细输出信息

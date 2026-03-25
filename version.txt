@@ -1,7 +1,7 @@
 VSVersionInfo(
   ffi=FixedFileInfo(
-    filevers=(1, 0, 0, 1),
-    prodvers=(1, 0, 0, 1),
+    filevers=(1, 1, 0, 1),
+    prodvers=(1, 1, 0, 1),
     mask=0x3f,
     flags=0x0,
     OS=0x40004,
@@ -17,13 +17,13 @@ VSVersionInfo(
           [
             StringStruct(u'CompanyName', u''),
             StringStruct(u'FileDescription', u'资源压缩和上传工具'),
-            StringStruct(u'FileVersion', u'1.0.0.1'),
+            StringStruct(u'FileVersion', u'1.1.0.1'),
             StringStruct(u'InternalName', u'资源压缩和上传工具'),
             StringStruct(u'LegalCopyright', u'Copyright (c) 2026'),
             StringStruct(u'OriginalFilename', u'资源压缩和上传工具.exe'),
             StringStruct(u'ProductName', u'资源压缩和上传工具'),
-            StringStruct(u'ProductVersion', u'1.0.0.1'),
-            StringStruct(u'Comments', u'修复上传问题 2023.3.25.18.39')
+            StringStruct(u'ProductVersion', u'1.1.0.1'),
+            StringStruct(u'Comments', u'隐藏CMD窗口 2026.3.25')
           ]
         )
       ]
