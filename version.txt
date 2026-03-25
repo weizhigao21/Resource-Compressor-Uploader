@@ -1,0 +1,33 @@
+VSVersionInfo(
+  ffi=FixedFileInfo(
+    filevers=(1, 0, 0, 1),
+    prodvers=(1, 0, 0, 1),
+    mask=0x3f,
+    flags=0x0,
+    OS=0x40004,
+    fileType=0x1,
+    subtype=0x0,
+    date=(0, 0)
+  ),
+  kids=[
+    StringFileInfo(
+      [
+        StringTable(
+          u'080404b0',
+          [
+            StringStruct(u'CompanyName', u''),
+            StringStruct(u'FileDescription', u'资源压缩和上传工具'),
+            StringStruct(u'FileVersion', u'1.0.0.1'),
+            StringStruct(u'InternalName', u'资源压缩和上传工具'),
+            StringStruct(u'LegalCopyright', u'Copyright (c) 2026'),
+            StringStruct(u'OriginalFilename', u'资源压缩和上传工具.exe'),
+            StringStruct(u'ProductName', u'资源压缩和上传工具'),
+            StringStruct(u'ProductVersion', u'1.0.0.1'),
+            StringStruct(u'Comments', u'修复上传问题 2023.3.25.18.39')
+          ]
+        )
+      ]
+    ),
+    VarFileInfo([VarStruct(u'Translation', [2052, 1200])])
+  ]
+)
