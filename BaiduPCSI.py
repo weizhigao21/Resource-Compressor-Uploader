@@ -143,7 +143,7 @@ class BaiduPCSI:
 
 
 def run_share_command(remote_path, password):
-    command = ["BaiduPCS-Go", "share", remote_path, "--access-code", password]
+    command = ["BaiduPCS-Go", "share", "set", remote_path, "-p", password, "-f"]
 
     try:
         result = subprocess.run(
@@ -156,27 +156,31 @@ def run_share_command(remote_path, password):
             creationflags=subprocess.CREATE_NO_WINDOW,
         )
 
-        print("STDOUT:", result.stdout)
-        print("STDERR:", result.stderr)
-        print("Return Code:", result.returncode)
-
         output = result.stdout + result.stderr
 
         if result.returncode == 0 or "分享成功" in output or "pan.baidu.com" in output:
             # 从输出中提取分享链接
             import re
 
-            # 匹配百度网盘链接
-            url_pattern = r"https://pan\.baidu\.com/s/[a-zA-Z0-9_-]+"
+            # 匹配百度网盘链接（带密码格式）
+            url_pattern = r"https://pan\.baidu\.com/s/[a-zA-Z0-9_-]+\?pwd=[a-zA-Z0-9]+"
             urls = re.findall(url_pattern, output)
 
             if urls:
                 share_url = urls[0]
-                print(f"分享成功！{share_url}?pwd={password}")
-                return [f"{share_url}?pwd={password}"]
+                print(f"分享成功！{share_url}")
+                return [share_url]
             else:
-                print("分享失败：无法从输出中提取分享链接")
-                return None
+                # 尝试匹配不带密码的链接
+                url_pattern2 = r"https://pan\.baidu\.com/s/[a-zA-Z0-9_-]+"
+                urls2 = re.findall(url_pattern2, output)
+                if urls2:
+                    share_url = f"{urls2[0]}?pwd={password}"
+                    print(f"分享成功！{share_url}")
+                    return [share_url]
+                else:
+                    print("分享失败：无法从输出中提取分享链接")
+                    return None
         else:
             print("分享失败！")
             return None
